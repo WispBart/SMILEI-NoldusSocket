@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using SMILEI.Core;
 using UnityEngine;
 
 public class SocketClient
@@ -16,6 +17,10 @@ public class SocketClient
     public string Hostname;
     public int Port;
 
+    public delegate void OnMessageDelegate(string message);
+
+    public event OnMessageDelegate OnReceiveMessage;
+    
     public SocketClient()
     {
 
@@ -69,7 +74,7 @@ public class SocketClient
                         Array.Copy(bytes, 0, incommingData, 0, length);
                         // Convert byte array to string message. 						
                         string serverMessage = Encoding.ASCII.GetString(incommingData);
-                        Debug.Log("server message received as: " + serverMessage);
+                        OnReceiveMessage?.Invoke(serverMessage);
                     }
                 }
             }

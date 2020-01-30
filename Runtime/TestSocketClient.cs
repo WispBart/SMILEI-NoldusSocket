@@ -12,17 +12,40 @@ public class TestSocketClient : MonoBehaviour
 
     public string hostname;
     public int port;
-
-
-    // Use this for initialization 	
-    void Start()
+    public NoldusSimpleBindings Bindings = new NoldusSimpleBindings();
+    
+    [Serializable]
+    public class NoldusSimpleBindings
     {
-        socketClient = new SocketClient();
+        public SimpleEmotionMixerAsset Neutral;
+        public SimpleEmotionMixerAsset Happy;
+        public SimpleEmotionMixerAsset Sad;
+        public SimpleEmotionMixerAsset Angry;
+        public SimpleEmotionMixerAsset Surprised;
+        public SimpleEmotionMixerAsset Scared;
+        public SimpleEmotionMixerAsset Disgusted;
+        public SimpleEmotionMixerAsset Valence;
+        public SimpleEmotionMixerAsset Arousal;
+        public SimpleEmotionMixerAsset Quality;
 
-        ConnectToSocketServer();
-
+        public void SetValues(FaceReaderMessage msg)
+        {
+            //if (Mathf.Approximately(msg.Quality, 0f)) return;
+            var quality = msg.Quality;
+            var timeSinceStart = 0f;
+            
+            Neutral?.SetValue(msg.Neutral, quality, timeSinceStart);
+            Happy?.SetValue(msg.Happy, quality, timeSinceStart);
+            Sad?.SetValue(msg.Sad, quality, timeSinceStart);
+            Angry?.SetValue(msg.Angry, quality, timeSinceStart);
+            Surprised?.SetValue(msg.Surprised, quality, timeSinceStart);
+            Scared?.SetValue(msg.Scared, quality, timeSinceStart);
+            Disgusted?.SetValue(msg.Disgusted, quality, timeSinceStart);
+            Valence?.SetValue(msg.Valence, quality, timeSinceStart);
+            Arousal?.SetValue(msg.Arousal, quality, timeSinceStart);
+        }
     }
-
+    
     void OnDisable()
     {
         DisconnectFromSocketServer();
@@ -30,13 +53,15 @@ public class TestSocketClient : MonoBehaviour
 
     void OnEnable()
     {
-
+        ConnectToSocketServer();
     }
 
     [ContextMenu("Disconnect from Socket Server")]
     public void DisconnectFromSocketServer()
     {
         socketClient.DisconnectFromTcpServer();
+        socketClient.OnReceiveMessage -= OnReceiveMessage;
+
     }
 
 
@@ -46,6 +71,7 @@ public class TestSocketClient : MonoBehaviour
         try
         {
             socketClient.ConnectToTcpServer(hostname, port);
+            socketClient.OnReceiveMessage += OnReceiveMessage;
         }
         catch (Exception e)
         {
@@ -53,6 +79,22 @@ public class TestSocketClient : MonoBehaviour
             throw;
         }
     }
+
+    private void OnReceiveMessage(string message)
+    {
+        Debug.Log("server message received as: " + message);
+        try
+        {
+            FaceReaderMessage msg = FaceReaderMessage.FromJson(message);
+            Bindings.SetValues(msg);
+        }
+        catch (ArgumentException e)
+        {
+            Debug.LogWarning($"Message is not a valid JSON:\n{message}");
+        }
+    }
+
+    
 
     // Update is called once per frame
     void Update()
