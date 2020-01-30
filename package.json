@@ -1,0 +1,12 @@
+{
+  "name": "nl.ixdfontysict.smilei.noldussocket",
+  "displayName": "SMILEI Noldus FaceReader Socket Client",
+  "version": "0.0.0",
+  "unity": "2018.3",
+  "description": "SMILEI plugin that uses a socket client to connect to the Noldus FaceReader API.",
+  "type": "sample",
+  "hideInEditor": false,
+  "dependencies": {
+    "nl.ixdfontysict.smilei.core": "0.0.2"
+  }
+}
