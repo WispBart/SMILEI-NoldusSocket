@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ebca606e4cce4ad396b94727b2b3968, type: 3}
-  m_Name: noldusangry 1
+  m_Script: {fileID: 11500000, guid: 79d1115515666479487e5a1a30bae072, type: 3}
+  m_Name: Noldus Sad
   m_EditorClassIdentifier: 
-  Timestamp: 0
-  Value: 0
-  Confidence: 0
+  DisplayName: 
+  LineColor: {r: 0.48235297, g: 0.40000004, b: 0.61960787, a: 1}
+  MixerAsset: {fileID: 11400000, guid: 2ad436f017f4448eba45501168e90a4d, type: 2}

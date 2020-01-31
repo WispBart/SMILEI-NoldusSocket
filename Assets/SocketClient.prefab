@@ -43,16 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e2a21788d3846b991af56b800dc2e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostname: 145.93.112.195
+  hostname: 145.93.112.97
   port: 8052
   Bindings:
-    Neutral: {fileID: 0}
+    Neutral: {fileID: 11400000, guid: a3ed1d55bc733443e8d4525a26d02d81, type: 2}
     Happy: {fileID: 11400000, guid: cca6637d596244e79a8271d918ba22e4, type: 2}
-    Sad: {fileID: 0}
-    Angry: {fileID: 11400000, guid: 2ad436f017f4448eba45501168e90a4d, type: 2}
+    Sad: {fileID: 11400000, guid: 2ad436f017f4448eba45501168e90a4d, type: 2}
+    Angry: {fileID: 11400000, guid: 72bd10c7703cf455d90c07dab5ba8075, type: 2}
     Surprised: {fileID: 11400000, guid: 50e3c88cd7be44067893e3b0beccdf4d, type: 2}
-    Scared: {fileID: 0}
-    Disgusted: {fileID: 0}
-    Valence: {fileID: 0}
-    Arousal: {fileID: 0}
-    Quality: {fileID: 0}
+    Scared: {fileID: 11400000, guid: 3ed91c3d5d7fe42e7821de67d83dd592, type: 2}
+    Disgusted: {fileID: 11400000, guid: 7040f2ead1d1f4527890428b1f3a3583, type: 2}
+    Valence: {fileID: 11400000, guid: ed794474c5c9d43538bc1840eb77fc2e, type: 2}
+    Arousal: {fileID: 11400000, guid: ed794474c5c9d43538bc1840eb77fc2e, type: 2}

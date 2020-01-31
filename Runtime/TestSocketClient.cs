@@ -26,11 +26,9 @@ public class TestSocketClient : MonoBehaviour
         public SimpleEmotionMixerAsset Disgusted;
         public SimpleEmotionMixerAsset Valence;
         public SimpleEmotionMixerAsset Arousal;
-        public SimpleEmotionMixerAsset Quality;
-
         public void SetValues(FaceReaderMessage msg)
         {
-            //if (Mathf.Approximately(msg.Quality, 0f)) return;
+            if (Mathf.Approximately(msg.Quality, 0f)) return;
             var quality = msg.Quality;
             var timeSinceStart = 0f;
             
