@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ebca606e4cce4ad396b94727b2b3968, type: 3}
-  m_Name: noldusangry
+  m_Name: noldussad
   m_EditorClassIdentifier: 
-  _implementation:
-    Timestamp: 0
-    Value: 0
-    Confidence: 0
+  Timestamp: 0
+  Value: 0
+  Confidence: 0
