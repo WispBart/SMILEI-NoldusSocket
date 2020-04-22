@@ -8,8 +8,8 @@ The package can be installed by adding this git repository to the Packages/manif
 ```
   "dependencies": {
     ...
-    "nl.ixdfontysict.smilei.core" : "https://git.fhict.nl/I875317/smilei-core.git#0.0.2"
-    "nl.ixdfontysict.smilei.noldussocket" : "https://git.fhict.nl/I875317/smilei-noldussocket"
+    "nl.ixdfontysict.smilei.core" : "https://github.com/WispBart/SMILEI-Core.git#0.1.0"
+    "nl.ixdfontysict.smilei.noldussocket" : "https://github.com/WispBart/SMILEI-NoldusSocket.git"
   }
 ```
 
